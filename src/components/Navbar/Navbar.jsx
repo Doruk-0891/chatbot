@@ -9,15 +9,18 @@ import CloseIcon from "@mui/icons-material/Close";
 import { useMediaQuery} from '@mui/material';
 import EditNoteOutlinedIcon from '@mui/icons-material/EditNoteOutlined';
 import LogoImage from '../../assets/logo.png';
+import zIndex from "@mui/material/styles/zIndex";
 
 const Navbar = () => {
     const isMobile = useMediaQuery("(max-width:900px)");
     const [menuOpen, setMenuOpen] = useState(false);
 
     return (
-        <Box>
-            <Stack direction="row" spacing={5}>
-                <Stack direction="column" spacing={5} alignItems="flex-start" width={240}>
+        <Box position="fixed" style={{
+            backgroundColor: '#FFFFFF',
+            zIndex: 999
+        }}>
+                <Stack direction="column" spacing={5} alignItems="flex-start" width='100%'>
                     {
                         isMobile && (
                         <IconButton onClick={() => setMenuOpen(prev => !prev)}>
@@ -52,10 +55,6 @@ const Navbar = () => {
                     }
 
                 </Stack>
-                <Stack direction="row" justifyContent="flex-start">
-                    <Typography color="primary.main" fontSize="28px" fontWeight="700">Bot AI</Typography>
-                </Stack>
-            </Stack>
         </Box>
     );
 }

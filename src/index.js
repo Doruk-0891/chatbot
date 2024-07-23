@@ -57,13 +57,6 @@ export const theme = createTheme({
       },
     },
   },
-  MuiContainer: {
-    styleOverrides: {
-      root: {
-        width: "90%",
-      },
-    },
-  },
   MuiTypography: {
     styleOverrides: {
       h1: {
