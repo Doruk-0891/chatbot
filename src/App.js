@@ -1,10 +1,14 @@
-import React from "react";
+import React, {useState} from "react";
 import { Outlet } from "react-router-dom";
 import Navbar from "./components/Navbar/Navbar";
 import { Container, Grid, Stack, Box, Typography } from "@mui/material";
 import InputForm from "./components/InputForm/InputForm";
 
 function App() {
+  const [userAsked, setUserAsked] = useState('');
+  const [chats, setChats] = useState([]);
+  const [isAsk, setAsk] = useState(false);
+  const [selectedRatings, setSelectedRatings] = useState('');
 
   return (
     <Grid container>
@@ -16,20 +20,21 @@ function App() {
       <Grid item xs={12} md={9}>
         <Container maxWidth="xl" position="relative">
           <Stack direction="column" justifyContent="space-between">
-            <Box position="fixed" ml={10}>
+            <Box position="fixed" ml={10} width="100%">
               <Typography fontSize="28px" fontWeight="700" color="primary.main">Bot AI</Typography>
             </Box>
-            <Box mt={5}>
-              <Outlet />
+            <Box mt={5} mb={30}>
+              <Outlet context={[userAsked, isAsk, setAsk, chats, setChats, selectedRatings, setSelectedRatings]} />
             </Box>
             <Box style={{
               position: 'fixed',
               bottom: '0',
-              margin: '1rem auto',
-              backgroundColor: '#FFFFFF'
+              padding: '1rem auto',
+              backgroundColor: '#FFFFFF',
+              zIndex: 999,
             }} 
-            width={{ xs: '93%', md: '70%'}}>
-              <InputForm />
+            width={{ xs: '95%', md: '72%'}}>
+              <InputForm value={userAsked} handleValue={setUserAsked} setAsk={setAsk} chats={chats} />
             </Box>
           </Stack>
         </Container>

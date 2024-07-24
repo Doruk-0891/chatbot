@@ -3,7 +3,7 @@ import ReactDOM from 'react-dom/client';
 import './index.css';
 import App from './App';
 import {createBrowserRouter, RouterProvider} from 'react-router-dom';
-import { createTheme, ThemeProvider } from "@mui/material";
+import { createTheme, ThemeProvider } from "@mui/material/styles";
 import NewConversationPage from './pages/NewConversation/NewConversation';
 import PastConversationPage from './pages/PastConversation/PastConversation';
 
@@ -27,7 +27,7 @@ const routes = createBrowserRouter([
 
 export const theme = createTheme({
   typography: {
-    fontFamily: "Ubuntu, Open Sans, sans-serif",
+    fontFamily: "Ubuntu",
   },
   palette: {
     primary: {
@@ -62,7 +62,7 @@ export const theme = createTheme({
       h1: {
         fontSize: "32px",
         fontWeight: "700",
-        lineHeight: "36.77px"
+        lineHeight: "36.77px",
       },
       h2: {
         fontWeight: "400",
@@ -72,7 +72,7 @@ export const theme = createTheme({
       h3: {
         fontSize: "24px",
         fontWeight: "400",
-        lineHeight: "27.58px"
+        lineHeight: "27.58px",
       }
     },
   },
